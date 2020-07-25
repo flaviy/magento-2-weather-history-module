@@ -1,0 +1,15 @@
+{
+  "name": "ochebernin/magento2-module-weather",
+  "require": {
+    "php": "~7.2.0"
+  },
+  "type": "magento2-module",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Ochebernin\\Weather\\": ""
+    }
+  }
+}

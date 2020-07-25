@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * routes
+ * @copyright Copyright © 2020 Ochebernin. All rights reserved.
+ * @author    chebernin@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="ochebernin_weather" frontName="ochebernin_weather">
+            <module name="Ochebernin_Weather" />
+        </route>
+    </router>
+</config>

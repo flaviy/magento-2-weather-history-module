@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * menu
+ * @copyright Copyright © 2020 Ochebernin. All rights reserved.
+ * @author    chebernin@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Ochebernin_Weather::weather_history"
+             title="Weather History"
+             module="Ochebernin_Weather"
+             sortOrder="10"
+             parent="Magento_Backend::content"
+             action="ochebernin_weather/weatherhistory"
+             resource="Ochebernin_Weather::weather_history"/>
+    </menu>
+</config>

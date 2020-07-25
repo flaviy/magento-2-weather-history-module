@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright © 2020 Ochebernin. All rights reserved.
+ * @author    chebernin@gmail.com
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ochebernin_weather_weather_history" resource="default" engine="innodb" comment="WeatherHistory Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="WeatherHistory Id"/>
+        <column xsi:type="smallint" padding="3" unsigned="false" nullable="false" name="temperature" comment="WeatherHistory Temperature"/>
+        <column xsi:type="text" nullable="false" name="weather_conditions" comment="WeatherHistory WeatherConditions"/>
+        <column xsi:type="varchar" length="100" nullable="true" name="weather_icon" comment="WeatherHistory WeatherIcon"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
