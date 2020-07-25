@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ochebernin_weather_history>
+            <api_settings>
+                <api_url>https://openweathermap.org/data/2.5/weather?q=Lublin&amp;appid=439d4b804bc8187953eb36d2a8c26a02</api_url>
+                <img_url>https://openweathermap.org/img/wn/</img_url>
+            </api_settings>
+        </ochebernin_weather_history>
+    </default>
+</config>

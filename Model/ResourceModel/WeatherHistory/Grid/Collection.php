@@ -7,6 +7,7 @@
 
 namespace Ochebernin\Weather\Model\ResourceModel\WeatherHistory\Grid;
 
+use Magento\Framework\Api\ExtensibleDataInterface;
 use Magento\Framework\Api\Search\AggregationInterface;
 use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
@@ -16,6 +17,7 @@ use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Psr\Log\LoggerInterface;
 use Ochebernin\Weather\Model\ResourceModel\WeatherHistory\Collection as WeatherHistoryCollection;
+use Magento\Framework\View\Element\UiComponent\DataProvider\Document;
 
 /**
  * Class Collection
@@ -40,7 +42,7 @@ class Collection extends WeatherHistoryCollection implements SearchResultInterfa
      * @param string $model
      * @param null $connection
      * @param AbstractDb|null $resource
-     * 
+     *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
@@ -52,7 +54,7 @@ class Collection extends WeatherHistoryCollection implements SearchResultInterfa
         $eventPrefix,
         $eventObject,
         $resourceModel,
-        $model = 'Magento\Framework\View\Element\UiComponent\DataProvider\Document',
+        $model = Document::class,
         $connection = null,
         AbstractDb $resource = null
     ) {
@@ -85,6 +87,7 @@ class Collection extends WeatherHistoryCollection implements SearchResultInterfa
     public function setAggregations($aggregations)
     {
         $this->aggregations = $aggregations;
+        return $this;
     }
 
 
@@ -92,8 +95,8 @@ class Collection extends WeatherHistoryCollection implements SearchResultInterfa
      * Retrieve all ids for collection
      * Backward compatibility with EAV collection
      *
-     * @param int $limit
-     * @param int $offset
+     * @param null $limit
+     * @param null $offset
      * @return array
      */
     public function getAllIds($limit = null, $offset = null)
@@ -114,7 +117,7 @@ class Collection extends WeatherHistoryCollection implements SearchResultInterfa
     /**
      * Set search criteria.
      *
-     * @param SearchCriteriaInterface $searchCriteria
+     * @param SearchCriteriaInterface|null $searchCriteria
      * @return $this
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
@@ -148,7 +151,7 @@ class Collection extends WeatherHistoryCollection implements SearchResultInterfa
     /**
      * Set items list.
      *
-     * @param \Magento\Framework\Api\ExtensibleDataInterface[] $items
+     * @param ExtensibleDataInterface[] $items
      * @return $this
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */

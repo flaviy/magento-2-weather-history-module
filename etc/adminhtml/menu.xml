@@ -9,11 +9,18 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
+        <add id="Ochebernin_Weather::menu"
+             title="Weather"
+             translate="title"
+             module="Ochebernin_Weather"
+             parent="Magento_Backend::content"
+             sortOrder="100"
+             resource="Ochebernin_Weather::weather_history"/>
         <add id="Ochebernin_Weather::weather_history"
              title="Weather History"
              module="Ochebernin_Weather"
-             sortOrder="10"
-             parent="Magento_Backend::content"
+             sortOrder="100"
+             parent="Ochebernin_Weather::menu"
              action="ochebernin_weather/weatherhistory"
              resource="Ochebernin_Weather::weather_history"/>
     </menu>

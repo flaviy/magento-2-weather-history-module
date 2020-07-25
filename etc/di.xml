@@ -8,6 +8,7 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Ochebernin\Weather\Api\WeatherHistoryRepositoryInterface" type="Ochebernin\Weather\Model\WeatherHistoryRepository"/>
+    <preference for="Ochebernin\Weather\Api\WeatherHistoryManagementInterface" type="Ochebernin\Weather\Model\WeatherHistoryManagement"/>
     <preference for="Ochebernin\Weather\Api\Data\WeatherHistoryInterface" type="Ochebernin\Weather\Model\WeatherHistory"/>
     <preference for="Ochebernin\Weather\Api\Data\WeatherHistorySearchResultInterface" type="Ochebernin\Weather\Model\WeatherHistorySearchResult"/>
 </config>

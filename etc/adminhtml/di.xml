@@ -5,18 +5,29 @@
  * @author    chebernin@gmail.com
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <virtualType name="OcheberninWeatherHistoryGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="OcheberninWeatherHistoryGridDataProvider"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="collection" xsi:type="object" shared="false">Ochebernin\Weather\Model\ResourceModel\WeatherHistory\Collection</argument>
-            <argument name="filterPool" xsi:type="object" shared="false">OcheberninWeatherHistoryGridFilterPool</argument>
+            <argument name="collection" xsi:type="object" shared="false">
+                Ochebernin\Weather\Model\ResourceModel\WeatherHistory\Collection
+            </argument>
+            <argument name="filterPool" xsi:type="object" shared="false">OcheberninWeatherHistoryGridFilterPool
+            </argument>
         </arguments>
     </virtualType>
-    <virtualType name="OcheberninWeatherHistoryGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+
+    <virtualType name="OcheberninWeatherHistoryGridFilterPool"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
         <arguments>
             <argument name="appliers" xsi:type="array">
-                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
-                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+                <item name="regular" xsi:type="object">
+                    Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter
+                </item>
+                <item name="fulltext" xsi:type="object">
+                    Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter
+                </item>
             </argument>
         </arguments>
     </virtualType>
@@ -26,6 +37,16 @@
             <argument name="eventPrefix" xsi:type="string">ochebernin_weather_weather_history_grid_collection</argument>
             <argument name="eventObject" xsi:type="string">ochebernin_weather_weather_history_grid_collection</argument>
             <argument name="resourceModel" xsi:type="string">Ochebernin\Weather\Model\ResourceModel\WeatherHistory</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ochebernin_weather_weather_history_listing_data_source" xsi:type="string">
+                    Ochebernin\Weather\Model\ResourceModel\WeatherHistory\Grid\Collection
+                </item>
+            </argument>
         </arguments>
     </type>
 </config>

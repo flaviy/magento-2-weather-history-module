@@ -12,6 +12,7 @@
         <column xsi:type="smallint" padding="3" unsigned="false" nullable="false" name="temperature" comment="WeatherHistory Temperature"/>
         <column xsi:type="text" nullable="false" name="weather_conditions" comment="WeatherHistory WeatherConditions"/>
         <column xsi:type="varchar" length="100" nullable="true" name="weather_icon" comment="WeatherHistory WeatherIcon"/>
+        <column xsi:type="datetime" nullable="false" name="created" comment="WeatherHistory DateTime"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>
         </constraint>

@@ -93,7 +93,11 @@ class WeatherHistoryRepository implements WeatherHistoryRepositoryInterface
         return $this->buildSearchResult($searchCriteria, $collection);
     }
 
-    private function addFiltersToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection)
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     */
+    private function addFiltersToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection): void
     {
         foreach ($searchCriteria->getFilterGroups() as $filterGroup) {
             $fields = $conditions = [];
@@ -105,23 +109,35 @@ class WeatherHistoryRepository implements WeatherHistoryRepositoryInterface
         }
     }
 
-    private function addSortOrdersToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection)
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     */
+    private function addSortOrdersToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection): void
     {
         foreach ((array) $searchCriteria->getSortOrders() as $sortOrder) {
-            $direction = $sortOrder->getDirection() == SortOrder::SORT_ASC ? 'asc' : 'desc';
+            $direction = $sortOrder->getDirection() === SortOrder::SORT_ASC ? 'asc' : 'desc';
             $collection->addOrder($sortOrder->getField(), $direction);
         }
     }
 
-    private function addPagingToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection)
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     */
+    private function addPagingToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection): void
     {
         $collection->setPageSize($searchCriteria->getPageSize());
         $collection->setCurPage($searchCriteria->getCurrentPage());
     }
 
-    private function buildSearchResult(SearchCriteriaInterface $searchCriteria, Collection $collection)
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     * @return WeatherHistorySearchResultInterface
+     */
+    private function buildSearchResult(SearchCriteriaInterface $searchCriteria, Collection $collection): WeatherHistorySearchResultInterface
     {
-        /** @var WeatherHistorySearchResultInterface $searchResults */
         $searchResults = $this->searchResultFactory->create();
         $searchResults->setSearchCriteria($searchCriteria);
         $searchResults->setItems($collection->getItems());

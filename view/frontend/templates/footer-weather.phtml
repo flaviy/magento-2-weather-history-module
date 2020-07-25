@@ -1,0 +1,13 @@
+<?php
+/** @var WeatherViewModel $viewModel */
+
+use Ochebernin\Weather\ViewModel\WeatherViewModel;
+
+$viewModel = $block->getData('view_model');
+
+?>
+
+<div class="ochebernin-weather-footer">
+    <p><?=$viewModel->getTemperature().' &deg;C' ?></p>
+    <p><?=$this->escapeHtml($viewModel->getWeatherConditions())?></p>
+</div>

@@ -7,49 +7,66 @@
 
 namespace Ochebernin\Weather\Api\Data;
 
+/**
+ * Interface WeatherHistoryInterface
+ * @package Ochebernin\Weather\Api\Data
+ */
 interface WeatherHistoryInterface
 {
-    /**
-     * @return int|null
-     */
-    public function getId();
-
-    /**
-     * @param int $value
-     * @return void
-     */
-    public function setId($value);
+    public const FIELD_CREATED = 'created';
 
     /**
      * @return int|null
      */
-    public function getTemperature();
+    public function getId(): ?int;
 
     /**
      * @param int $value
-     * @return void
+     * @return WeatherHistoryInterface
      */
-    public function setTemperature(int $value);
+    public function setId($value): WeatherHistoryInterface;
+
+    /**
+     * @return int|null
+     */
+    public function getTemperature(): ?int;
+
+    /**
+     * @param int $value
+     * @return WeatherHistoryInterface
+     */
+    public function setTemperature(int $value): WeatherHistoryInterface;
 
     /**
      * @return string|null
      */
-    public function getWeatherConditions();
+    public function getWeatherConditions(): ?string;
 
     /**
      * @param string $value
-     * @return void
+     * @return WeatherHistoryInterface
      */
-    public function setWeatherConditions(string $value);
+    public function setWeatherConditions(string $value): WeatherHistoryInterface;
 
     /**
      * @return string|null
      */
-    public function getWeatherIcon();
+    public function getWeatherIcon(): ?string;
 
     /**
      * @param string $value
-     * @return void
+     * @return WeatherHistoryInterface
      */
-    public function setWeatherIcon(string $value);
+    public function setWeatherIcon(string $value): WeatherHistoryInterface;
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreated(): ?\DateTime;
+
+    /**
+     * @param \DateTime $created
+     * @return WeatherHistoryInterface
+     */
+    public function setCreated(\DateTime $created): WeatherHistoryInterface;
 }

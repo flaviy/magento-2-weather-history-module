@@ -13,10 +13,11 @@ use Ochebernin\Weather\Model\ResourceModel\WeatherHistory as WeatherHistoryResou
 
 class WeatherHistory extends AbstractModel implements WeatherHistoryInterface
 {
+
     /**
      * @return void
      */
-    protected function _construct()
+    protected function _construct(): void
     {
         $this->_init(WeatherHistoryResourceModel::class);
     }
@@ -24,68 +25,83 @@ class WeatherHistory extends AbstractModel implements WeatherHistoryInterface
     /**
      * @return int|null
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->_getData('entity_id');
     }
 
     /**
      * @param int $value
-     * @return void
+     * @return WeatherHistory
      */
-    public function setId($value)
+    public function setId($value): WeatherHistoryInterface
     {
         $this->setData('entity_id', $value);
+        return $this;
     }
 
     /**
      * @return int|null
      */
-    public function getTemperature()
+    public function getTemperature(): ?int
     {
         return $this->getData('temperature');
     }
 
     /**
      * @param int $value
-     * @return void
+     * @return WeatherHistory
      */
-    public function setTemperature(int $value)
+    public function setTemperature(int $value): WeatherHistoryInterface
     {
         $this->setData('temperature', $value);
+        return $this;
     }
 
     /**
      * @return string|null
      */
-    public function getWeatherConditions()
+    public function getWeatherConditions(): ?string
     {
         return $this->getData('weather_conditions');
     }
 
     /**
      * @param string $value
-     * @return void
+     * @return WeatherHistory
      */
-    public function setWeatherConditions(string $value)
+    public function setWeatherConditions(string $value): WeatherHistoryInterface
     {
         $this->setData('weather_conditions', $value);
+        return $this;
     }
 
     /**
      * @return string|null
      */
-    public function getWeatherIcon()
+    public function getWeatherIcon(): ?string
     {
         return $this->getData('weather_icon');
     }
 
     /**
      * @param string $value
-     * @return void
+     * @return WeatherHistory
      */
-    public function setWeatherIcon(string $value)
+    public function setWeatherIcon(string $value): WeatherHistoryInterface
     {
         $this->setData('weather_icon', $value);
+        return $this;
+    }
+
+    public function getCreated(): ?\DateTime
+    {
+        return $this->getData(self::FIELD_CREATED);
+    }
+
+    public function setCreated(\DateTime $created): WeatherHistoryInterface
+    {
+        $this->setData(self::FIELD_CREATED, $created);
+        return $this;
     }
 }

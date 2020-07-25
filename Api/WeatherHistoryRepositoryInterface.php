@@ -16,26 +16,26 @@ interface WeatherHistoryRepositoryInterface
 {
     /**
      * @param int $id
-     * @return \Ochebernin\Weather\Api\Data\WeatherHistoryInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return WeatherHistoryInterface
+     * @throws NoSuchEntityException
      */
     public function getById($id);
 
     /**
-     * @param \Ochebernin\Weather\Api\Data\WeatherHistoryInterface
+     * @param WeatherHistoryInterface $WeatherHistory
      * @return void
      */
     public function save(WeatherHistoryInterface $WeatherHistory);
 
     /**
-     * @param \Ochebernin\Weather\Api\Data\WeatherHistoryInterface
+     * @param WeatherHistoryInterface $WeatherHistory
      * @return void
      */
     public function delete(WeatherHistoryInterface $WeatherHistory);
 
     /**
-     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
-     * @return \Ochebernin\Weather\Api\Data\WeatherHistorySearchResultInterface
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return WeatherHistorySearchResultInterface
      */
     public function getList(SearchCriteriaInterface $searchCriteria);
 }

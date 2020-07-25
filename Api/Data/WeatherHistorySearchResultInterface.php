@@ -12,12 +12,12 @@ use Magento\Framework\Api\SearchResultsInterface;
 interface WeatherHistorySearchResultInterface extends SearchResultsInterface
 {
     /**
-     * @return \Ochebernin\Weather\Api\Data\WeatherHistoryInterface[]
+     * @return WeatherHistoryInterface[]
      */
     public function getItems();
 
     /**
-     * @param \Ochebernin\Weather\Api\Data\WeatherHistoryInterface[] $items
+     * @param WeatherHistoryInterface[] $items
      * @return $this
      */
     public function setItems(array $items);
